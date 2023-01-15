@@ -1,0 +1,12 @@
+parameters:
+	level: 7
+	paths:
+		- src
+		- tests
+services:
+    -
+        class: Odan\PHPStan\Rules\AssignmentInConditionRule
+        tags: [phpstan.rules.rule]
+    -
+        class: Odan\PHPStan\Rules\YodaConditionRule
+        tags: [phpstan.rules.rule]
