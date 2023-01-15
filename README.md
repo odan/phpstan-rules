@@ -1,4 +1,4 @@
-## Description
+# PHPStan Rules
 
 A collection of PHPStan rules.
 
