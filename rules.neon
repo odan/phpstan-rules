@@ -1,0 +1,5 @@
+services:
+	-
+		class: Odan\PHPStan\Rules\AssignmentInConditionRule
+	-
+		class: Odan\PHPStan\Rules\YodaConditionRule
