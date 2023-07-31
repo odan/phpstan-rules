@@ -24,7 +24,6 @@ class AssignmentInConditionRule implements Rule
     {
         return Node\Stmt\If_::class;
     }
-
     public function processNode(Node $node, Scope $scope): array
     {
         $assignNode = $this->nodeFinder->findFirstInstanceOf($node->cond, Assign::class);
