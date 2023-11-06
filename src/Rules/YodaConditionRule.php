@@ -15,7 +15,10 @@ use PHPStan\Rules\Rule;
  */
 class YodaConditionRule implements Rule
 {
-    private NodeFinder $nodeFinder;
+    /**
+     * @var NodeFinder
+     */
+    private $nodeFinder;
 
     public function __construct()
     {
@@ -29,7 +32,25 @@ class YodaConditionRule implements Rule
 
     public function processNode(Node $node, Scope $scope): array
     {
-        $nodes = $this->nodeFinder->findInstanceOf($node->cond, BinaryOp::class);
+        $nodes = [];
+
+        $operators = [
+            BinaryOp\Identical::class,
+            BinaryOp\NotIdentical::class,
+            BinaryOp\Equal::class,
+            BinaryOp\NotEqual::class,
+            BinaryOp\Greater::class,
+            BinaryOp\GreaterOrEqual::class,
+            BinaryOp\Smaller::class,
+            BinaryOp\SmallerOrEqual::class,
+            BinaryOp\Spaceship::class,
+        ];
+
+        foreach ($operators as $operator) {
+            foreach ($this->nodeFinder->findInstanceOf($node->cond, $operator) as $nodeItem) {
+                $nodes[] = $nodeItem;
+            }
+        }
 
         $errors = [];
 
@@ -42,8 +63,8 @@ class YodaConditionRule implements Rule
             // ConstFetch: true, false, null
             // Scalar: string, bool, int etc
             if (
-                $expr->left instanceof ConstFetch ||
-                $expr->left instanceof Node\Scalar
+                $expr->left instanceof ConstFetch
+                || $expr->left instanceof Node\Scalar
             ) {
                 $errors[] = 'Yoda condition is not allowed.';
             }
