@@ -1,5 +1,9 @@
 # PHPStan Rules
 
+[![Latest Version on Packagist](https://img.shields.io/github/release/odan/phpstan-rules.svg)](https://packagist.org/packages/odan/phpstan-rules)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![Total Downloads](https://img.shields.io/packagist/dt/odan/phpstan-rules.svg)](https://packagist.org/packages/odan/phpstan-rules/stats)
+
 A collection of PHPStan rules.
 
 ## Requirements
