@@ -15,13 +15,12 @@ composer require odan/phpstan-rules:dev-master --dev
 To use the PHPStan rules, you need to include the classes 
 in your PHPStan configuration file `phpstan.neon`.
 
-Just pick the rules you want:
+Just pick the rule(s) you want:
 
 ```neon
 rules:
 	- Odan\PHPStan\Rules\AssignmentInConditionRule
 	- Odan\PHPStan\Rules\YodaConditionRule
-	- Odan\PHPStan\Rules\CyclomaticComplexityRule
 ```
 
 If you want to include all rules, you have to include `rules.neon` in your project's PHPStan config:
@@ -33,16 +32,20 @@ includes:
 
 ## Register CyclomaticComplexityRule in phpstan.neon
 
+Add a new service configuration and change the `maxComplexity` as needed.
+
 ```neon
 services:
-    -
-        class: YourNamespace\Rules\CyclomaticComplexityRule
-        arguments:
-            - 10 # Max allowed complexity
-        tags:
-            - phpstan.rules.rule
+	-
+		class: Odan\PHPStan\Rules\CyclomaticComplexityRule
+		arguments:
+			maxComplexity: 3
+		tags:
+			- phpstan.rules.rule
 
 ```
+
+Note: If exists, remove the rule `Odan\PHPStan\Rules\YodaConditionRule` from the `rules:` section `rules.neon`
 
 ## Rules
 
