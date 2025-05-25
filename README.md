@@ -45,7 +45,7 @@ services:
 
 ```
 
-Note: If exists, remove the rule `Odan\PHPStan\Rules\YodaConditionRule` from the `rules:` section `rules.neon`
+Note: If exists, remove the rule `Odan\PHPStan\Rules\CyclomaticComplexityRule` from the `rules:` section `rules.neon`
 
 ## Rules
 
