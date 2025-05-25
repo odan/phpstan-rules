@@ -9,7 +9,7 @@ A collection of PHPStan rules.
 ## Installation
 
 ```
-composer require odan/phpstan-rules:dev-master --dev
+composer require odan/phpstan-rules --dev
 ```
 
 To use the PHPStan rules, you need to include the classes 
