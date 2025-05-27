@@ -49,7 +49,7 @@ services:
 
 ```
 
-Note: If exists, remove the rule `Odan\PHPStan\Rules\CyclomaticComplexityRule` from the `rules:` section `rules.neon`
+Note: If exists, remove the rule `Odan\PHPStan\Rules\CyclomaticComplexityRule` from the `rules:` section in `phpstan.neon`
 
 ## Rules
 
